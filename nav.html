@@ -1,67 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Navigation Bar</title>
 
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: transparent;
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-  .nav-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 24px 0;
-  }
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0b0b0d; /* deep black background */
+    }
 
-  .custom-nav {
-    display: flex;
-    gap: 40px;
-  }
+    .custom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      padding: 24px 0;
+    }
 
-  .custom-nav a {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 34px;
-    color: #ffffff;
-    text-decoration: none;
-    letter-spacing: 1px;
-    transition: color 0.25s;
-  }
+    .custom-nav a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      color: #b0b0b0; /* gray text */
+      text-decoration: none;
+      letter-spacing: 1px;
+      position: relative;
+      transition: color 0.25s;
+    }
 
-  .custom-nav a:hover {
-    color: #f97415;
-  }
+    .custom-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background-color: #f97415;
+      transition: width 0.3s ease;
+    }
 
-  .custom-nav a.active {
-    color: #f97415;
-  }
-</style>
+    .custom-nav a:hover {
+      color: #f97415;
+    }
+
+    .custom-nav a:hover::after {
+      width: 100%;
+    }
+
+    .custom-nav a.active {
+      color: #ffffff; /* white active link */
+    }
+
+    .custom-nav a.active::after {
+      width: 100%;
+      background-color: #f97415; /* orange underline */
+    }
+  </style>
 </head>
 
 <body>
-  <div class="nav-wrapper">
-    <div class="custom-nav">
-      <a href="/home">HOME</a>
-      <a href="/film">FILM</a>
-      <a href="/schedule">SCHEDULE</a>
-      <a href="/academics">ACADEMICS</a>
-      <a href="/contact">CONTACT</a>
-    </div>
+  <div class="custom-nav">
+    <a href="/home" class="active">Home</a>
+    <a href="/film">Film</a>
+    <a href="/about">About</a>
+    <a href="/schedule">Schedule</a>
+    <a href="/academics">Academics</a>
+    <a href="/contact">Contact</a>
   </div>
-
-<script>
-  const links = document.querySelectorAll('.custom-nav a');
-  const current = window.location.pathname.toLowerCase();
-
-  links.forEach(link => {
-    const href = link.getAttribute('href').toLowerCase();
-    if (current.includes(href)) {
-      link.classList.add('active');
-    }
-  });
-</script>
 </body>
 </html>
