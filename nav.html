@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+
+  .nav-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+  }
+
+  .custom-nav {
+    display: flex;
+    gap: 40px;
+  }
+
+  .custom-nav a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 34px;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.25s;
+  }
+
+  .custom-nav a:hover {
+    color: #f97415;
+  }
+
+  .custom-nav a.active {
+    color: #f97415;
+  }
+</style>
+</head>
+
+<body>
+  <div class="nav-wrapper">
+    <div class="custom-nav">
+      <a href="/home">HOME</a>
+      <a href="/film">FILM</a>
+      <a href="/schedule">SCHEDULE</a>
+      <a href="/academics">ACADEMICS</a>
+      <a href="/contact">CONTACT</a>
+    </div>
+  </div>
+
+<script>
+  const links = document.querySelectorAll('.custom-nav a');
+  const current = window.location.pathname.toLowerCase();
+
+  links.forEach(link => {
+    const href = link.getAttribute('href').toLowerCase();
+    if (current.includes(href)) {
+      link.classList.add('active');
+    }
+  });
+</script>
+</body>
+</html>
